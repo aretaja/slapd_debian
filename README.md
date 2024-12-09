@@ -1,5 +1,5 @@
-# slapd_fusiondirectory
+# slapd_debian
 
-slapd + fusiondirectory container
+slapd daemon from debian repo
 
 Designed to meet my own needs
