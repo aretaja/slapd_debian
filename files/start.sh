@@ -1,8 +1,10 @@
 #!/bin/sh
 
 chown -R openldap ./export ./import \
-  && cp /home/slapd/certs/*.pem /etc/ssl/certs/ \
+  && cp /home/slapd/certs/*_server.pem /etc/ssl/certs/ \
+  && cp /home/slapd/certs/ca_certs.pem /etc/ldap/ \
   && cp /home/slapd/certs/*.key /etc/ssl/private/ \
+  && echo "TLS_CACERT /etc/ldap/ca_certs.pem" >/etc/ldap/ldap.conf \
   && addgroup --system ssl-cert \
   && adduser openldap ssl-cert \
   && chmod 0710 /etc/ssl/private \
