@@ -47,5 +47,6 @@ None      (32768, 0x8000)
 
 # Test
 ```
-radtest <user> <pass> 127.0.0.1 0 <secret>
+ldapwhoami -x -H ldap://<server> -D '<uid>,ou=people,dc=<name>,dc=<name>' -W -ZZ
+ldapsearch -x -H ldap://<server> -D 'uid=<uid>,ou=people,dc=<name>,dc=<name>' -W -b "ou=people,dc=<name>,dc=<name>" -ZZ
 ```
